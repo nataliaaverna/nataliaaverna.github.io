@@ -95,3 +95,13 @@
 .gallery-arrow[data-photo-next] svg,.gallery-arrow[data-photo-step="1"] svg{transform:rotate(180deg)}
 .gallery-arrow[hidden]{display:none}
 @media(max-width:360px){.gallery-dot{min-width:28px;width:28px;padding:6px}.gallery-controls{gap:0}}
+
+.news-archive{border-top:1px solid var(--line)}
+.news-archive>summary{display:list-item;width:fit-content;cursor:pointer;list-style:none;color:var(--accent);font:inherit;font-size:14px;padding:18px 0}
+.news-archive>summary::-webkit-details-marker{display:none}
+.news-archive>summary:hover{text-decoration:underline;text-underline-offset:4px}
+.news-archive>summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.news-archive .news-less{display:none}
+.news-archive[open] .news-more{display:none}
+.news-archive[open] .news-less{display:inline}
+.news-archive-items>.news-story:first-of-type{padding-top:14px}
