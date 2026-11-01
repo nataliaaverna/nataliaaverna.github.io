@@ -11,17 +11,28 @@
   function swipe(surface, change) {
     let start = null;
     let suppressUntil = 0;
+    const pointers = new Set();
+    const isZoomed = () => (globalThis.visualViewport?.scale ?? 1) > 1.01;
     surface.addEventListener('pointerdown', event => {
-      if (event.pointerType === 'touch' && event.isPrimary !== false) {
-        start = { x: event.clientX, y: event.clientY };
+      if (event.pointerType !== 'touch') return;
+      pointers.add(event.pointerId);
+      if (pointers.size !== 1 || event.isPrimary === false || isZoomed()) {
+        start = null;
+        return;
       }
+      start = { id: event.pointerId, x: event.clientX, y: event.clientY };
     });
-    surface.addEventListener('pointercancel', () => { start = null; });
+    surface.addEventListener('pointercancel', event => {
+      pointers.delete(event.pointerId);
+      start = null;
+    });
     surface.addEventListener('pointerup', event => {
-      if (!start) return;
+      pointers.delete(event.pointerId);
+      if (!start || start.id !== event.pointerId) return;
       const dx = event.clientX - start.x;
       const dy = event.clientY - start.y;
       start = null;
+      if (pointers.size || isZoomed()) return;
       if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
         suppressUntil = Date.now() + 400;
         change(dx < 0 ? 1 : -1);
