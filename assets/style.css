@@ -169,3 +169,32 @@
 
 .main-nav a[aria-current=page]{font-weight:600;text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:5px;text-decoration-skip-ink:auto}
 .main-nav a[aria-current=page]::after{display:none}
+
+.teaching-subject{padding-bottom:12px}
+.teaching-year+.teaching-year{margin-top:48px}
+.teaching-role{font-size:15px;margin:10px 0 0;color:var(--ink)}
+.course-materials{margin-top:24px;padding:22px 24px;background:#f8f0eb;border-left:2px solid #e2c9bd;border-radius:0 4px 4px 0}
+.course-materials h4{font-family:'DM Sans',Arial,sans-serif;font-size:14px;font-weight:500;line-height:1.5;margin:0;color:var(--ink)}
+.course-materials .resource-links{margin-top:14px;gap:12px}
+.course-materials .resource-button{background:var(--paper);min-height:40px;padding:8px 16px}
+.course-materials .resource-button:hover{background:var(--accent)}
+@media(max-width:600px){.course-materials{padding:18px}.teaching-year+.teaching-year{margin-top:36px}.teaching-year-head>.teaching-status{justify-self:start}}
+
+.teaching-subject{margin-top:18px;padding:26px 28px;background:#faf3ee;border:1px solid #e9ddd5;border-radius:8px}
+.teaching-subject-head{gap:20px;align-items:center}
+.teaching-subject-head h3{font-size:31px;line-height:1.2;letter-spacing:-.4px}
+.teaching-subject .teaching-details{margin-top:10px;font-size:14px;line-height:1.6}
+.teaching-role{margin-top:8px;font-size:15px;line-height:1.6}
+.teaching-year+.teaching-year{margin-top:36px}
+.teaching-subject .course-materials{margin-top:22px;padding:18px 0 0;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0}
+.course-materials .resource-links{margin-top:12px}
+@media(max-width:600px){
+.teaching-subject{padding:21px 20px;margin-top:16px}
+.teaching-subject-head{align-items:flex-start;gap:12px}
+.teaching-subject-head h3{font-size:27px}
+.teaching-subject .course-materials{margin-top:20px;padding-top:16px}
+.teaching-year+.teaching-year{margin-top:28px}
+}
+
+.teaching-subject-head>.resource-button{background:var(--paper)}
+.teaching-subject-head>.resource-button:hover{background:var(--accent)}
